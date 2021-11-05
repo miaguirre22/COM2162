@@ -131,34 +131,57 @@
             </div>
           </div>
           <div class="row">
-            <input
-              class="form-control"
-              type="text"
-              name="correo"
-              id="correo"
-              placeholder="correo"
-            />
+            <div class="col">
+              <input
+                class="form-control"
+                type="text"
+                name="correo"
+                id="correo"
+                placeholder="correo"
+              />
+            </div>
           </div>
           <div class="row">
-            <label for="cantidad">Cantidad</label>
-            <input
-              class="form-control"
-              type="text"
-              name="cantidad"
-              id="cantidad"
-              placeholder="cantidad"
-            />
-            <label for="categoria">Categoria</label>
-            <select name="categoria" id="categoria">
-              <option value="Estudiante">Estudiante</option>
-              <option value="Trainee">Trainee</option>
-              <option value="Junior">Junior</option>
-            </select>
+            <div class="col-sm-6">
+              <label for="cantidad">Cantidad</label>
+              <input
+                class="form-control"
+                type="number"
+                name="cantidad"
+                id="cantidad"
+                placeholder="cantidad"
+              />
+            </div>
+            <div class="col-sm-6">
+              <label for="categoria">Categoria</label>
+              <select class="form-select" name="categoria" id="categoria">
+                <option value="80">Estudiante</option>
+                <option value="50">Trainee</option>
+                <option value="15">Junior</option>
+              </select>
+            </div>
           </div>
-          <div class="row"></div>
           <div class="row">
-            <input type="button" value="Borrar" />
-            <input type="submit" value="Resumen" />
+            <div class="alert alert-primary" role="alert">
+              Total a pagar: $ <span id="precioPagar"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="d-grid col-sm-6 mx-auto">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="borrar"
+                onclick="resumen"
+              >
+                Borrar
+              </button>
+            </div>
+            <div class="d-grid col-sm-6 mx-auto">
+              <button type="button" class="btn btn-primary" id="resumen">
+                Resumen
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -198,6 +221,7 @@
         </div>
       </nav>
     </footer>
+    <script src="./js/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
