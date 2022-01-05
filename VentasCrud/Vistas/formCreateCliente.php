@@ -7,19 +7,11 @@ require_once("./Plantillas/templateHeader.php")
     <form action="../createCliente.php" method="POST">
         <div class="col-auto m-1">
             <label for="nombreCliente" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreCliente">
+            <input type="text" class="form-control" id="nombreCliente" name="nombre">
         </div>
         <div class="col-auto m-1">
             <label for="clienteDNI" class="form-label">DNI</label>
-            <input type="number" class="form-control" id="clienteDNI">
-        </div>
-        <div class="col-auto m-1">
-            <label for="precioCliente" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precioCliente">
-        </div>
-        <div class="col-auto m-1">
-            <label for="cantidadStock" class="form-label">Stock</label>
-            <input type="number" class="form-control" id="cantidadStock">
+            <input type="number" class="form-control" id="clienteDNI" name="dni">
         </div>
         <div class="col-auto m-1">
             <button type="submit" class="btn btn-success">Crear Cliente</button>

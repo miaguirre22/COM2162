@@ -24,8 +24,8 @@ $productos = Producto::getProductos();
                     <td><?= $producto['nombre'] ?></td>
                     <td><?= $producto['precio'] ?></td>
                     <td><?= $producto['stock'] ?></td>
-                    <td><a href="#" class="btn btn-primary">Editar</a></td>
-                    <td><a href="#" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="formEditProducto.php?id=<?php echo $producto['id_producto']; ?>" class="btn btn-primary">Editar</a></td>
+                    <td><a href="../deleteProducto.php?id=<?php echo $producto['id_producto']; ?>" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -4,12 +4,11 @@ include_once("Modelos/Cliente.php");
 
 if (isset($_POST)) {
 
+    $id_cliente = $_GET['id'];
     $nombre = $_POST['nombre'];
     $dni = $_POST['dni'];
 
-    Cliente::crear($nombre, $dni);
+    Cliente::editar($id_cliente, $nombre, $dni);
 
-    header('Location: index.php');
+    header('Location: Vistas/viewClientes.php');
 }
-
-

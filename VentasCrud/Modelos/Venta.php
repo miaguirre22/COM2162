@@ -1,7 +1,5 @@
 <?php
 include_once("../conexion.php");
-require_once("Producto.php");
-require_once("Cliente.php");
 
 class Venta
 {
@@ -9,12 +7,25 @@ class Venta
     {
         try {
             $conexionBD = new Conexion();
-            $query = ("INSERT INTO venta(nombre, precio, stock) VALUES (?,?,?,?, NOW());");
+            $query = ("INSERT INTO venta(producto_id, cliente_id, importe_total, stock_vendido, fecha) VALUES (?,?,?,?, NOW());");
             // preparamos la consulta
             $sql = $conexionBD->getConexion()->prepare($query);
             $sql->execute(array($producto_id, $cliente_id, $importe_total, $stock_vendido));
         } catch (Exception $e) {
             echo ("Ha ocurrido un error: " . $e);
+        }
+    }
+
+    public static function getVentas()
+    {
+        try {
+            $conexionBD = new Conexion();
+            $sql = $conexionBD->getConexion()->prepare("SELECT * FROM venta;");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo ("Ha ocurrido un error: " . $e);
+            return null;
         }
     }
 

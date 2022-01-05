@@ -27,13 +27,10 @@ class Conexion
     function conectar()
     {
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=ventas', $this->user, $this->pass);
+            $pdo = new PDO('mysql:host=localhost;dbname=' . $this->dbname, $this->user, $this->pass);
             // echo ("Conexión exitosa!");
         } catch (PDOException $error) {
             echo ("Error de Conexión!" . $error->getMessage());
         }
     }
 }
-
-$miConexion = new Conexion();
-$miConexion->conectar();

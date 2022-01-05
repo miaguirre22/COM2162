@@ -22,8 +22,8 @@ $clientes = Cliente::getClientes();
                     <th scope="row"><?= $i++ ?></th>
                     <td><?= $cliente['nombre'] ?></td>
                     <td><?= $cliente['dni'] ?></td>
-                    <td><a href="" class="btn btn-primary">Editar</a></td>
-                    <td><a href="" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="formEditCliente.php?id=<?php echo $cliente['id_cliente']; ?>" class="btn btn-primary">Editar</a></td>
+                    <td><a href="../deleteCliente.php?id=<?php echo $cliente['id_cliente']; ?>" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

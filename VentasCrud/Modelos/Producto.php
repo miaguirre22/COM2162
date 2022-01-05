@@ -1,7 +1,4 @@
 <?php
-
-use Producto as GlobalProducto;
-
 include_once("../conexion.php");
 
 class Producto
@@ -26,6 +23,24 @@ class Producto
             $sql = $conexionBD->getConexion()->prepare("SELECT * FROM producto;");
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo ("Ha ocurrido un error: " . $e);
+            return null;
+        }
+    }
+
+    public static function getProductoById($id)
+    {
+        try {
+            $conexionBD = new Conexion();
+            $sql = $conexionBD->getConexion()->prepare("SELECT * FROM producto WHERE id_producto=?;");
+            $sql->execute(array($id));
+            $result = $sql->fetch();
+            // echo "<pre>";
+            // print_r($result);
+            // echo "</pre>";
+
+            return $result;
         } catch (Exception $e) {
             echo ("Ha ocurrido un error: " . $e);
             return null;
@@ -57,7 +72,3 @@ class Producto
     }
 }
 
-// Producto::crear("Boligrafo", "90", 50);
-// echo ("<pre>");
-// print_r(Producto::getProductos());
-// echo ("</pre>");

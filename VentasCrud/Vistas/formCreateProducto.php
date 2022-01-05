@@ -7,19 +7,19 @@ require_once("./Plantillas/templateHeader.php")
     <form action="../createProducto.php" method="POST" >
         <div class="col-auto m-1">
             <label for="nombreCliente" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreCliente">
+            <input type="text" class="form-control" id="nombreCliente" name="nombre">
         </div>
         <div class="col-auto m-1">
             <label for="precioProducto" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precioProducto">
+            <input type="number" class="form-control" id="precioProducto" name="precio">
         </div>
         <div class="col-auto m-1">
             <label for="cantidadStock" class="form-label">Stock</label>
-            <input type="number" class="form-control" id="cantidadStock">
+            <input type="number" class="form-control" id="cantidadStock" name="stock">
         </div>
         <div class="col-auto m-1">
-            <button type="submit" class="btn btn-success">Crear Producto</button>
-            <a href="../index.php" class="btn btn-primary">Volver</a>
+            <button type="submit" class="btn btn-success">Crear</button>
+            <a href="viewProductos.php" class="btn btn-primary">Volver</a>
         </div>
     </form>
 </div>

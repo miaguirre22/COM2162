@@ -1,7 +1,10 @@
 <?php
 require_once("./Plantillas/templateHeader.php");
 require_once("../Modelos/Cliente.php");
+require_once("../Modelos/Producto.php");
+require_once("../Modelos/Venta.php");
 $clientes = Cliente::getClientes();
+$ventas = Venta::getVentas();
 ?>
 
 <div class="container">
@@ -11,21 +14,25 @@ $clientes = Cliente::getClientes();
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Cliente</th>
-                <th scope="col">Proveedor</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Importe</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Stock Vendido</th>
+                <th scope="col">Importe Total</th>
                 <th scope="col">Fecha</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Juna Carlos</td>
-                <td>Monitor</td>
-                <td>2</td>
-                <td>$80.000</td>
-                <td>25/11/2021</td>
-            </tr>
+            <?php $i = 1;
+            foreach ($ventas as $venta) : ?>
+                <tr>
+                    <th scope="row"><?= $i ?></th>
+                    <td><?= Cliente::getClienteById($venta['cliente_id'])['nombre'] ?></td>
+                    <td><?= Producto::getProductoById($venta['producto_id'])['nombre'] ?></td>
+                    <td><?= $venta['stock_vendido'] ?></td>
+                    <td><?= $venta['importe_total'] ?></td>
+                    <td><?= $venta['fecha'] ?></td>
+                </tr>
+            <?php $i++;
+            endforeach; ?>
         </tbody>
     </table>
 
